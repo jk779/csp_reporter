@@ -18,7 +18,3 @@ RUN gem install bundler && bundle install
 EXPOSE 4567
 
 CMD ["bundle", "exec", "rackup", "csp_reporter.rb"]
-
-#    gem install bundler && \
-#    bundle config set deployment true && \
-#    bundle config set jobs $(expr `nproc` \* 2)
