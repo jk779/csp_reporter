@@ -1,10 +1,12 @@
 version: '3'
 services:
-  shortie:
+  csp_reporter:
+    container_name: csp_reporter
     image: jk779/csp_reporter:latest
     volumes:
-      - db:/usr/src/app/db
+      - csp_reporter_db_dir:/usr/src/app/db
     environment:
+      RACK_ENV: production
       REPORTS_PASSWORD: ${REPORTS_PASSWORD}
       REPORTS_USERNAME:
     # ports:
@@ -19,4 +21,4 @@ services:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
 
 volumes:
-  db:
+  csp_reporter_db_dir:
