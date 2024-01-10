@@ -1,0 +1,22 @@
+version: '3'
+services:
+  shortie:
+    image: jk779/csp_reporter:latest
+    volumes:
+      - db:/usr/src/app/db
+    environment:
+      REPORTS_PASSWORD: ${REPORTS_PASSWORD}
+      REPORTS_USERNAME:
+    # ports:
+    #   - "4567:4567"
+
+  cloudflared-tunnel-pub:
+    container_name: cf-tunnel-csp_reporter
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+
+volumes:
+  db:
