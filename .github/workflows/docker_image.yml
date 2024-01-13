@@ -47,8 +47,6 @@ jobs:
           push: true
           tags: |
             jk779/csp_reporter:${{ steps.date.outputs.date }}-alpine-sha-${{ steps.vars.outputs.sha_short }}
-            jk779/csp_reporter:${{ steps.date.outputs.date }}-alpine
-            jk779/csp_reporter:latest-alpine
             jk779/csp_reporter:latest
           labels: |
             build_date=${{ steps.date.outputs.date }}
