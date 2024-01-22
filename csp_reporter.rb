@@ -47,3 +47,7 @@ get '/reports' do
   @reports = DB.execute("SELECT * FROM CSP_Reports ORDER BY created_at DESC LIMIT 1000")
   erb :reports
 end
+
+not_found do
+  'Not found ¯\_(ツ)_/¯'
+end
